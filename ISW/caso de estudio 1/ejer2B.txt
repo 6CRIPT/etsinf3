@@ -1,0 +1,19 @@
+public Persona(String Nombre, String Direccion, Double RFC, Compañia Company){}
+
+public Compañia(String Nombre, String Direccion, Int numero, Producto Produ){}
+
+public Titulo(Persona persona){}
+
+public Trabajador(Proyecto proyect){}
+
+public Administrador(Departamento depa){}
+
+public Proyecto(String Nombre, Double Presupuesto, Int Prioridad, ICollection<Trabajador> traba, Administrador Admin){}
+
+public Departamento(Administrador Admin, ICollection<Producto>){}
+
+public Producto(String Nombre, Double Costo, Double Peso){}
+
+//César Martínez Chico
+//Jaime Candel Martínez
+//Taha Benbrahim

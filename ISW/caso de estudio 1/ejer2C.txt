@@ -1,0 +1,12 @@
+Persona persona = new Persona(nombre, direccion, 11);
+Compañia compañia = new Compañia(nombre, direccion, 11, produto);
+Proyecto proyecto = new Proyecto(nombre, 11, prioridad, [trabajador1, trabajador2]);
+Departamento = new Departamento(admin, [prod1, prod2]);
+Producto producto = new Producto(nombre, 11, 11);
+Titulo titulo = new Titulo(persona);
+Trabajdor trabajador = new Trabajador(proyecto);
+Administrador admin = new Administrador(depart);
+
+//César Martínez Chico
+//Jaime Candel Martínez
+//Taha Benbrahim
