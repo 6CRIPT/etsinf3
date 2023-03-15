@@ -1,0 +1,18 @@
+por hacer:
+- devolver el numero de hilos creados
+
+
+sol ej3: 
+- si hace todas las n ejecuciones es mejor el estatic con tamaño de chunk por 
+  defecto.
+- si no eliminamos la comparacion d < c es mejor el dynamic ya que se va
+  adecuando y adaptando al sistema, no los reparte equitativamente si no que va dando segun van terminando. Con static podria ser que el primer hilo 
+  ya pillase la mayoria de las iteracciones del bucle
+- la peor solucion seria la de el tamaño de chunk 1 ya que el aprovechamiento
+  de la memoria caché es peor.
+
+BIBLIOGRAFIA:
+- http://algoritmosplanificacion.blogspot.com/2012/08/algoritmos-de-planificacion-estaticos-y.html
+- https://es.wikipedia.org/wiki/Chunk
+- https://learn.microsoft.com/es-es/cpp/parallel/openmp/3-run-time-library-functions?view=msvc-170
+- 
