@@ -1,0 +1,71 @@
+César Martínez Chico 3G2
+Personalmente, para compara bien los resultados, he ejecutado la siguiente linea de comando:
+
+./experiment_mod_exa.py tr3G2  '0.1 1 10 100 1000 10000' '0.1 1 10 100 1000 10000 100000'
+ 
+Para así probar todos las combinaciones de alpha beta posibles. El resultado completo ha sido: (comentario al final)
+
+#     a          b       E       k       Ete    Ete (%) Ite(%)
+#-------     -------    ----    ----    -----   ------- ----------
+     0.1        0.1       0     118      83     13.8    [11.1, 16.6]
+     0.1        1.0       0     119      81     13.5    [10.8, 16.2]
+     0.1        10.0      0     146      89     14.8    [12.0, 17.7]
+     0.1        100.0    189     150      91     15.2    [12.3, 18.0]
+     0.1        1000.0   965     150      71     11.8    [9.2, 14.4]
+     0.1        10000.0  1369    150      77     12.8    [10.2, 15.5]
+     0.1        100000.0 2045    150     122     20.3    [17.1, 23.6]
+     1.0        0.1       0      96      95     15.8    [12.9, 18.8]
+     1.0        1.0       0     118      83     13.8    [11.1, 16.6]
+     1.0        10.0      0     119      81     13.5    [10.8, 16.2]
+     1.0        100.0     0     146      89     14.8    [12.0, 17.7]
+     1.0        1000.0   189     150      91     15.2    [12.3, 18.0]
+     1.0        10000.0  965     150      71     11.8    [9.2, 14.4]
+     1.0        100000.0 1369    150      77     12.8    [10.2, 15.5]
+    10.0        0.1       0      82      86     14.3    [11.5, 17.1]
+    10.0        1.0       0      96      95     15.8    [12.9, 18.8]
+    10.0        10.0      0     118      83     13.8    [11.1, 16.6]
+    10.0        100.0     0     119      81     13.5    [10.8, 16.2]
+    10.0        1000.0    0     146      89     14.8    [12.0, 17.7]
+    10.0        10000.0  189     150      91     15.2    [12.3, 18.0]
+    10.0        100000.0 965     150      71     11.8    [9.2, 14.4]
+   100.0        0.1       0     119      87     14.5    [11.7, 17.3]
+   100.0        1.0       0      82      86     14.3    [11.5, 17.1]
+   100.0        10.0      0      96      95     15.8    [12.9, 18.8]
+   100.0        100.0     0     118      83     13.8    [11.1, 16.6]
+   100.0        1000.0    0     119      81     13.5    [10.8, 16.2]
+   100.0        10000.0   0     146      89     14.8    [12.0, 17.7]
+   100.0        100000.0 189     150      91     15.2    [12.3, 18.0]
+  1000.0        0.1       0     119      87     14.5    [11.7, 17.3]
+  1000.0        1.0       0     119      87     14.5    [11.7, 17.3]
+  1000.0        10.0      0      82      86     14.3    [11.5, 17.1]
+  1000.0        100.0     0      96      95     15.8    [12.9, 18.8]
+  1000.0        1000.0    0     118      83     13.8    [11.1, 16.6]
+  1000.0        10000.0   0     119      81     13.5    [10.8, 16.2]
+  1000.0        100000.0  0     146      89     14.8    [12.0, 17.7]
+ 10000.0        0.1       0     119      87     14.5    [11.7, 17.3]
+ 10000.0        1.0       0     119      87     14.5    [11.7, 17.3]
+ 10000.0        10.0      0     119      87     14.5    [11.7, 17.3]
+ 10000.0        100.0     0      82      86     14.3    [11.5, 17.1]
+ 10000.0        1000.0    0      96      95     15.8    [12.9, 18.8]
+ 10000.0        10000.0   0     118      83     13.8    [11.1, 16.6]
+ 10000.0        100000.0  0     119      81     13.5    [10.8, 16.2]
+
+En este caso, y a la vista de los resultados, la mejor combinacion de alpha y beta es: alpha = 10000 y beta = 100000. Porque el porcentaje de errores en el test es de tan solo 13.5,
+aunque es cierto que hay otras posibles combinaciones que dan este porcentaje de error o incluso menor, esta es la mejor combinacion, porque para empezar descartamos aquellas ejecuciones
+que no converjan en las 150 iteracciones del algoritmo perceptrón. Quitando todas estas ejecuciones, el Ete% menor es 13.5, y aunque hay varias ejecuciones con este %, me quedo
+con esta porque si nuestra beta es mayor, significa que las muestras para ser clasificadas, necesitan ser "muy diferentes" a las de otras clases, es decir que cuando nosotros 
+multiplicamos la componente x por el vector de pesos le sumamos esa beta, entonces a mayor beta, mas estricto será el algoritmo perceptrón a la hora de decidir si es mayor que el maximo
+anterior o no: 
+
+#perceptron.py
+for c in range(C):
+        if c != cn and np.dot(w[:,c],xn)+b > g:
+          w[:, c] = w[:, c] - a*xn; err = True
+
+nos interesa ese +b en la comparacion de la segunda linea. Esto significa que deberá haber mucha diferencia entre la multiplicacion clase del vector de pesos que estemos
+ en esta iteraccion c por los valores del objeto x respecto al peso real g que saldria de multiplicar la clase real (segun el dataset) de ese objeto x por el propio objeto x.
+
+Además la alpha también es alta. En cuanto a la precision del clasificador, no es especialmente relevante la alpha en este caso, aunque un alpha alto, ayuda a que el algoritmo 
+se entrene mas rapidamente (también más bruscamente, porque a veces puede producir que se pase porque con un alpha menor se habria ajustado bien), por eso lo he elegido porque
+ con un numero de iteracciones k suficiente, se entrena correctamente.
+
