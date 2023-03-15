@@ -1,1 +1,1 @@
-Sistemas de almacenamiento y recuperacion de información no estructurada.
+Sistemas de almacenamiento y recuperacion de información no estructurada
