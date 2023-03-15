@@ -1,1 +1,1 @@
-Asignatura TSR
+Tecnologías de sistemas en red.
