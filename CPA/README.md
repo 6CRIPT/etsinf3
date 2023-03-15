@@ -1,1 +1,1 @@
-Asignatura computacion paralela.
+Asignatura computacion paralela
