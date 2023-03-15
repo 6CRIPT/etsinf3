@@ -1,1 +1,1 @@
-Asignatura sistemas inteligentes
+Sistemas inteligentes.
