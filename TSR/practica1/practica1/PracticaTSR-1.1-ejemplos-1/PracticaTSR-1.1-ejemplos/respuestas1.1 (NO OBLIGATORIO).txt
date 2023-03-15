@@ -1,0 +1,53 @@
+
+**SE QUE ESTO NO HABIA PORQUÉ SUBIRLO PERO BUNEO LO SUBO POR SI ACASO QUIERE VER ALGO MÁS.**
+
+
+AMBITO DE VARIABLES
+Cuestion 1: 
+    Si que se pueden modificar. La diferencia es que con var, la variable tiene ambito de funcion y puede ser utilizada en cualquier punto
+incluso cuando no se ha inicializado aun en el codigo. Let tiene ambito de bloque y solo se puede usar una vez la linea de codigo
+en la que se define, se ejecuta.
+
+Cuestion 2
+    No se puede porque let_i esta definida en el ambito del bloque del for.
+
+Cuestion 3
+    da error puesto que la global3 no tiene tipo asociado, entonces da error al ser una ejecucion estricta
+
+Cuestion 4
+    Evitar errores de ejecucion
+
+TIPOS DE VARIABLES
+    3.2) Porque el compilador asume que al usar el + estamos usando strings, sin embargo como para strings no hay ninguna operacion de la -, 
+pues ahi si o si son numeros.
+    3.3)  Más versátil para el programador.
+
+ARGUMENTOS DE FUNCIONES.
+    c1) es un vector que recoje los argumentos de la fucnion invocada. Si que se puede acceder a sus componentes.
+    c2) Not a number y lo vemos porque hemos hecho la suma de un numero y 2 undefined.
+    c3) que se esperan un numero indeterminado de argumentos.
+    c4) creo que lo que hace es tomar de primer elemento el vector entero, no suma sus componentes si no que lo pasa a un String y lo concatena
+     con los undefined, porque al final la funcion lo que espera son o numero o strings incluso.
+
+CLASES EN JAVASCRIPT
+ //no hay ejercicios?
+
+CLAUSURAS
+
+6.2.1)porque evitamos el uso de variables globales, que en navegadores pueden ser peligrosas si usamos 
+servidores concurrentes, pq provocarian condiciones de carrera.
+6.3.1) Esta formada por las variables 'y' y la funcion inner.
+6.4.1)traza y la y
+6.4.2)la traza y la y
+6.4.3)1 o 3
+
+CALLBACKS
+7.1.1)Sinceramente no lo tengo claro pero imagino que porque el settimeout aunque sea de 0 segundos, hace que se ponga en la cola de eventos (o pila de llamadas) despus que el console.log(5) y por eso sale despues?
+7.1.2) Porque si hacemos que el bucle haga mas iteracciones entonces tardará mas tiempo en ejecutarse el bucle que los 100 ms del settimeout.
+7.2.1)Creo que porque el settimeout aunque sea de 0 en la primera iteraccion, lo pone mas atras en la cola de eventos, y se van metiendo los demas sin ejecutar ninguno hasta que no se han metido todos, y cuando se empiezan a ejecutar entonces la i ya vale 10.
+7.2.2)Porque se van ejecutando simultaneamente entonces se van "solapando" los timeouts y cada segundo va terminando uno.
+7.2.3)Supongo que porque js no termina un programa hasta que no terminan todos sus hilos o su cola de eventos.
+7.3.1)la generadora es el primer settimeout. y la clausura es la que devuelve dentro. 9 veces. Se crea una y las invoca el main??
+7.3.2)ir almacenando el valor de la i.
+7.4.1) No se ejecuta el codigo, se queda pillado la terminal. (nota) tras unos cuantos segundos (30) me ha dado fatal error XD
+7.5.1)
